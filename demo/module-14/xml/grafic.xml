@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="grafic.xsl" ?>
+<graf>
+	<item value="100" color="red"/>
+	<item value="120" color="green"/>
+	<item value="100" color="blue"/>
+	<item value="80" color="orange"/>
+	<item value="140" color="purple"/>
+	<item value="55" color="lime"/>
+	<item value="60" color="yellow"/>
+	<item value="110" color="maroon"/>
+</graf>

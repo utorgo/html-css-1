@@ -1,0 +1,14 @@
+body {
+    width: 60%;
+    margin: 28px 28px 28px 28px
+}
+a:link {
+    color: whitesmoke;
+}
+h2 {
+    color: aqua
+}
+hr {
+    width: 50%;
+    color: aqua
+}

@@ -1,0 +1,10 @@
+body {
+	background-color:#ccc;
+}
+
+#output {
+	background-color:white;
+	float:left;
+	width:200px;
+	margin-right:25px;
+}

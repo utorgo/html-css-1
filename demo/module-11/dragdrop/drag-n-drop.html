@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style type="text/css">
+			div {width:150px;height:70px;padding:10px;border:1px solid #aaaaaa;margin-bottom:15px}
+			img{cursor:move}
+		</style>
+		<script>
+			function allowDrop(ev){
+				ev.preventDefault();
+			}
+
+			function drag(ev){
+				ev.dataTransfer.setData("img",ev.target.id);
+			}
+
+			function drop(ev){
+				ev.preventDefault();
+				var data=ev.dataTransfer.getData("img");
+				ev.target.appendChild(document.getElementById(data));
+			}
+		</script>
+</head>
+<body>
+	<p>Брось картинку в прямоугольник</p>
+
+	<div id="d" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<img id="i" src="logo.gif" draggable="true" ondragstart="drag(event)">
+
+</body>
+</html>

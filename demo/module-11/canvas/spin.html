@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+</head>
+<body>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script>
+window.addEventListener("load",setup,false);
+var timer=null;
+
+function setup() {
+	var canvas=document.getElementById("my-canvas");
+	var context;
+	if (canvas.getContext) {
+		context = canvas.getContext("2d");
+		context.translate(canvas.width/2,canvas.height/2);
+		context.restore();
+		draw(context,1);
+	}
+}
+
+function draw(context,rotation) {
+	context.beginPath();
+	rect(context,"fill",0,0,100,100,255,0,0,1);
+	rect(context,"fill",50,50,100,100,0,0,255,.1);
+	rect(context,"stroke",50,50,100,100);
+	rect(context,"clear",50,50,50,50);
+	rect(context,"fill",50,50,50,50,102,0,102,.1);
+	rect(context,"stroke",0,0,100,100,255,0,0);
+	line(context,0,0,100,100);
+	line(context,100,0,150,50);
+	line(context,0,100,50,150);
+	line(context,100,100,150,150);
+	context.stroke();
+	rotate(context,rotation);
+	context.save();
+}
+
+function rect(context,type,x,y,w,h,r,g,b,t) {
+	var color;
+	if (typeof t == "undefined") t=1;
+	switch (type) {
+		case "fill" :
+			color = "rgba(" + r + "," + g + "," + b + "," + t + ")";
+			context.fillStyle=color;
+			context.fillRect(x,y,w,h);
+			break;
+		case "stroke" :
+			context.strokeRect(x,y,w,h);
+			break;
+		case "clear" :
+			context.clearRect(x,y,w,h);
+			break;
+	}
+}
+
+function line(context,x1,y1,x2,y2) {
+	context.moveTo(x1,y1);
+	context.lineTo(x2,y2);
+}
+
+function rotate(context,i) {
+	context.rotate(-.25);
+	context.scale(1.0,.99);
+	timer = setTimeout(function() {draw(context,i)},10);
+}
+
+function stopTimer() {
+	clearTimeout(timer);
+}
+
+
+</script>
+</head>
+
+<body>
+<canvas id="my-canvas" height="500" width="500">Ваш браузер не поддерживает canvas.</canvas>
+<button onclick="stopTimer()">Остановить</button>
+<button onclick="setup()">Продолжить</button>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+    width: 90%;
+    margin: 28px;
+    border: 20px darkgray;
+	background-color:lightgray;
+	color: darkblue;
+}
+h1 {
+	text-align: center;
+}
+h2 {
+	text-align: center;
+}
+hr {
+	width: 77%;
+	color: darkblue;
+}
+.mailto {
+	text-align: right;
+}
+.navbar {
+	text-align: center;
+}
+a:link {
+	color: #c32b38;
+}
+a:visited{
+	color: #ef8355;
+}
+ul {
+	list-style-type: none;
+}
+.navbar li {
+		display: inline;
+}
+

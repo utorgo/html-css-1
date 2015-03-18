@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SVG в действии</title>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+    function clickMe(evt) {
+      var shape = evt.target;
+      var x = parseInt(shape.getAttribute("x"));
+      if (isNaN(x)) {
+        // Для окружности
+        var x = parseInt(shape.getAttribute("cx"));
+        x += 100;
+        shape.setAttribute("cx", x);
+      }
+      else {
+        // Для других фигур
+        x += 100;
+        shape.setAttribute("x", x);
+      }
+
+    }
+  </script>
+</head>
+<style>
+	rect, circle, text{cursor:pointer}
+</style>
+<body>
+
+<h1>SVG в действии</h1>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+<rect x="100"
+    y="100"
+    width="200"
+    height="100"
+    stroke="green"
+    stroke-width="5"
+    fill="#555"
+    onclick="clickMe(evt)" />
+
+<circle cx="300"
+    cy="150"
+    r="100"
+    fill="red"
+    onclick="clickMe(evt)" />
+
+<text x="200"
+    y="100"
+    font-family="Verdana"
+    font-size="35"
+    text-anchor="middle"
+    onclick="clickMe(evt)">
+  Подвигаем фигуры
+</text>
+
+</svg>
+
+</body>
+</html>

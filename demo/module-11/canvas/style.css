@@ -1,0 +1,54 @@
+#my-canvas {
+	border:1px dotted #006;
+}
+
+label {
+	display:block;
+	float:left;
+	width:100px;
+	clear:both;
+	font-weight:bold;
+}
+
+label[for='red'] {
+	color:red;
+}
+
+label[for='green'] {
+	color:green;
+}
+
+label[for='blue'] {
+	color:blue;
+}
+
+output {
+	display:block;
+	float:left;
+}
+
+menu {
+	display:block;
+	float:left;
+}
+
+menu h1 {
+	font-size:large;
+	border-bottom:1px solid #000;
+}
+
+#codecontainer {
+	clear:both;
+}
+
+#code {
+	width:496px;
+	height:200px;
+	float:left;
+	margin-right:10px;
+}
+
+section#coordinates {
+	display:block;
+	float:left;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+<style>
+	#my-canvas {
+		border:1px dotted #006;
+	}
+</style>
+<script>
+window.addEventListener("load",setup,false);
+var timer=null;
+
+function setup() {
+	var canvas=document.getElementById("my-canvas");
+	var context;
+	if (canvas.getContext) {
+		context = canvas.getContext("2d");
+		context.translate(canvas.width/2,canvas.height/2);
+		context.restore();
+		draw(context,1);
+	}
+}
+
+function draw(context,rotation) {
+	var base=10;
+	context.beginPath();
+	rect(context,"fill",0,0,base*2,base*2,0,0,102,1);
+	rect(context,"fill",base,base,base*2,base*2,255,102,0,1);
+	rect(context,"stroke",base,base,base*2,base*2);
+	rect(context,"stroke",0,0,base*2,base*2,255,0,0);
+	line(context,0,0,base,base);
+	line(context,base*2,0,base*3,base);
+	line(context,0,base*2,base,base*3);
+	line(context,base*2,base*2,base*3,base*3);
+	context.stroke();
+	context.scale(1.01,1.01);
+	rotate(context,rotation);
+	context.save();
+}
+
+function rect(context,type,x,y,w,h,r,g,b,t) {
+	var color;
+	if (typeof t == "undefined") t=1;
+	switch (type) {
+		case "fill" :
+			color = "rgba(" + r + "," + g + "," + b + "," + t + ")";
+			context.fillStyle=color;
+			context.fillRect(x,y,w,h);
+			break;
+		case "stroke" :
+			context.strokeRect(x,y,w,h);
+			break;
+		case "clear" :
+			context.clearRect(x,y,w,h);
+			break;
+	}
+}
+
+function line(context,x1,y1,x2,y2) {
+	context.moveTo(x1,y1);
+	context.lineTo(x2,y2);
+}
+
+var selections=0;
+function rotate(context,i) {
+	var winner=randContestant();
+	context.rotate(.25);
+	addText(255,255,255,1,winner);
+	timer = setTimeout(function() {addText(255,255,255,1,winner);draw(context,i)},50);
+	selections++;
+	if(selections>200) {
+		stopTimer();
+	}
+}
+
+function stopTimer() {
+	clearTimeout(timer);
+}
+
+function addText(r,g,b,t,text) {
+	var canvas=document.getElementById("my-canvas");
+	var context;
+	if (canvas.getContext) {
+		context = canvas.getContext("2d");
+		context.font="2pt Verdana";
+		context.fillStyle="rgba(" + r + "," + g + "," + b + "," + t + ")";
+		context.save();
+		context.rotate(-.25);
+		context.translate(0,-1);
+		context.fillText(text,10,10);
+		context.restore();
+	}
+}
+
+function randContestant() {
+	var contestants = [
+		'HTML-CSS', 'AJAX', 'JavaScript', 'XML', 'PHP'
+	]
+
+	var randNum = Math.floor(Math.random()*contestants.length);
+	var winner = contestants[randNum];
+	return winner;
+}
+</script>
+</head>
+
+<body>
+<canvas id="my-canvas" height="600" width="600">Ваш браузер не поддерживает canvas.</canvas>
+<button onclick="stopTimer()">Остановить</button>
+<button onclick="setup()">Продолжить</button>
+<output id="output"></output>
+</body>
+</html>

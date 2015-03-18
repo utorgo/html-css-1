@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Пример раскрывающегося списка</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<style type="text/css">
+		ul.expandable li { list-style-image: url('../images/point.gif') }
+		li ul.expandable { display: none }
+	</style>
+	<script type="text/javascript">
+		/*
+		**	Обработка щелчка по ссылке
+		*/
+		function aClick(objA)
+		{
+			// Найдем родительский li
+			var li = objA.parentNode;
+			// Найдем вложенный список
+			var uls = li.getElementsByTagName("UL");
+			// Если вложенных список нет - разрешаем переход по ссылке
+			if (uls.length == 0) return true;
+			// Вложенному списку назначим свойства и поменяем иконку
+			if (uls[0].style.display == "")
+			{
+				uls[0].style.display = "block";
+				li.style.listStyleImage = "url('../images/minus.gif')";
+			}
+			else
+			{
+				 uls[0].style.display = "";
+				 li.style.listStyleImage = "url('../images/plus.gif')";
+			} 
+			// Запрещаем переход по ссылке
+			return false;
+		}
+		/*
+		**	Функция устанавливает для элементов li
+		**	значок [+], если этот элемент имеет вложенный список
+		*/
+		function setPlusIcon()
+		{
+			var allLIs = document.getElementsByTagName("LI");
+			for (var i = 0; i < allLIs.length; i++)
+			{
+				var li = allLIs[i];
+				var allULs = li.getElementsByTagName("UL");
+				
+				if (allULs.length > 0)
+					if (allULs[0].className == "expandable")
+						li.style.listStyleImage = "url('../images/plus.gif')";
+			}
+		}
+		/*
+		**	Запустим эту функцию при загрузке страницы
+		*/
+		window.onload = setPlusIcon;
+	</script>
+</head>
+
+<body>
+	<h1>Пример раскрывающегося списка</h1>
+	<ul class="expandable">
+		<li>
+			<a href="#" onclick="return aClick(this)">Книги</a>
+			<ul class="expandable">
+				<li>
+					<a href="#" onclick="return aClick(this)">Отечественные</a>
+					<ul class="expandable">
+						<li><a href="#" onclick="return aClick(this)">Детективы</a></li>
+						<li><a href="#" onclick="return aClick(this)">Научная фантастика</a></li>
+						<li><a href="#" onclick="return aClick(this)">Исторические</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" onclick="return aClick(this)">Зарубежные</a>
+					<ul class="expandable">
+						<li><a href="#" onclick="return aClick(this)">Детективы</a></li>
+						<li><a href="#" onclick="return aClick(this)">Научная фантастика</a></li>
+						<li><a href="#" onclick="return aClick(this)">Исторические</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+ 		<li>
+			<a href="#" onclick="return aClick(this)">DVD</a>
+			<ul class="expandable">
+				<li>
+					<a href="#" onclick="return aClick(this)">Отечественные</a>
+					<ul class="expandable">
+						<li><a href="#" onclick="return aClick(this)">Детективы</a></li>
+						<li><a href="#" onclick="return aClick(this)">Научная фантастика</a></li>
+						<li><a href="#" onclick="return aClick(this)">Исторические</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" onclick="return aClick(this)">Зарубежные</a>
+					<ul class="expandable">
+						<li><a href="#" onclick="return aClick(this)">Детективы</a></li>
+						<li><a href="#" onclick="return aClick(this)">Научная фантастика</a></li>
+						<li><a href="#" onclick="return aClick(this)">Исторические</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
