@@ -1,0 +1,27 @@
+
+table, th, td {
+	text-align: right;
+	border-collapse: collapse;
+}
+table caption {	
+	font: 24px Georgia;
+}
+th {
+	background-color: black;
+	color: white;	
+}
+th:nth-of-type(1) {
+	text-align: center;
+}
+td:nth-of-type(1) {
+	text-align: left;
+}
+td:nth-child(n+2){
+	width: 120;
+}
+td:nth-child(1){
+	width: 540;
+}
+tr:nth-of-type(even) {
+	background-color: dimgray;
+}

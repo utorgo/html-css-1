@@ -34,3 +34,10 @@ ul {
 		display: inline;
 }
 
+iframe { 
+	width: 900px;
+}
+
+div.iframe {
+	text-align: center;
+}
