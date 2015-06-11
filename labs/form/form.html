@@ -1,51 +1,87 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Форма обратной связи</title>
-	</head>
-	<body>
-     	<h1>Давайте познакомимся</h1>
-        <form action="" name="Форма обратной связи"><!-- Начало формы -->
-            <div>
-                <input type="number" min="-5" max="99" value="55">
-                <label for="name">Ваше имя:</label>
-                <input id="name" name="name" type="text"/><!-- Текстовое поле --><br/>
-            </div>
-            <div>
-                <label for="surname">Ваша фамилия:</label>
-        		<input name="surname" type="text"/><!-- Текстовое поле --><br/>
-            </div>
-            <div>
-                <label for="whoareyou">Кто вы?</label>
-        		<input id="man" name="whoareyou" type="radio" value="man"/>
-                <label for="man">мужчина</label> <!-- Радио кнопки -->
-                <input id="women" name="whoareyou" type="radio" value="women"/>
-                <label for="women">женщина</label> <!-- Радио кнопки --><br/>
-            </div>
-            <div>
-                <label for="whatdoyoudo">Чем занимаетесь?</label>
-                <select id="whatdoyoudo" name="whatdoyoudo" size="1">
-                    <option value="1" selected="selected">школьник</option>
-                    <option value="2">студент</option>
-                    <option value="3">безработный</option>
-                    <option value="4">рабочий класс</option>
-                	<option value="5">офисный планктон</option>
-        			<option value="6">креативный класс</option>
-                    <option value="7">интеллигент</option>
-                	<option value="8">олигарх</option>
-                </select><br/>
-            </div>
-            <div>
-                <textarea name="someaboutyou" cols="40" >Напишите коротко о себе:</textarea><!-- Текст --><br/>
-            </div>
-            <div>
-                <input id="steal" type="checkbox">
-                <label for="steal">Я не буду воровать записи курсов</label><!-- Флажок --><br/>
-            </div>
-            <div>
-                <input type="submit" value="Послать отзыв"/><!-- Кнопка для отправки формы -->
-                <input type="submit" value="Очистить форму"/><!-- Кнопка для очистки формы -->
-            </div>
-        </form><!-- Конец формы -->
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Форма обратной связи</title>
+    <style>
+        form {
+            float: left;           
+        }
+        
+        label {            
+            float: left;
+            padding-right: 10px;
+        }
+        
+        div {
+            text-align: right;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Давайте познакомимся</h1>
+    <form action="" name="Форма обратной связи">
+        <!-- Начало формы -->
+
+        <div>
+            <label for="name">Ваше имя:</label>
+            <input id="name" name="name" type="text" />
+            <!-- Текстовое поле -->
+            <br/>
+        </div>
+        <div>
+            <label for="surname">Ваша фамилия:</label>
+            <input name="surname" type="text" />
+            <!-- Текстовое поле -->
+            <br/>
+        </div>
+
+        <div>
+            <label for="whoareyou">Кто вы?</label>           
+            <input id="man" name="whoareyou" type="radio" value="man" />мужчина
+             <!--label for="man">мужчина</label-->
+            <!-- Радио кнопки -->
+            <input id="women" name="whoareyou" type="radio" value="women" checked="checked" />женщина
+            <!--label for="women">женщина</label-->
+            <!-- Радио кнопки -->
+            <br/>
+        </div>
+        <div>
+            <label for="whatdoyoudo">Чем занимаетесь?</label>
+            <select id="whatdoyoudo" name="whatdoyoudo" size="1">
+                <option value="1" selected="selected">школьник</option>
+                <option value="2">студент</option>
+                <option value="3">безработный</option>
+                <option value="4">рабочий класс</option>
+                <option value="5">офисный планктон</option>
+                <option value="6">креативный класс</option>
+                <option value="7">интеллигент</option>
+                <option value="8">олигарх</option>
+            </select>
+            <br/>
+        </div>
+        <div>
+            <textarea name="someaboutyou" cols="40">Напишите коротко о себе:</textarea>
+            <!-- Текст -->
+            <br/>
+        </div>
+        <div>
+            <input id="steal" type="checkbox">
+            <label for="steal">Я не буду воровать записи курсов</label>
+            <!-- Флажок -->
+            <br/>
+        </div>
+        <div>
+            <input type="submit" value="Послать отзыв" />
+            <!-- Кнопка для отправки формы -->
+            <input type="submit" value="Очистить форму" />
+            <!-- Кнопка для очистки формы -->
+        </div>
+    </form>
+    <!-- Конец формы -->
+</body>
+
 </html>

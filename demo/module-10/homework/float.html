@@ -1,49 +1,53 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<!-- 2 columns (menu left) -->
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Книги и Фильмы - обзоры всего и всея</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .left {
-            float: left;
-            width: 25%;
-            clear: both;
-        }
-        
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
         header {
             background-color: red;
         }
         
         .right {
+            background-color: yellow;
             float: right;
         }
         
-        /*.nav.left {
-            
+        .left {
+            background-color: gold;
             float: left;
+        }
+        
+        footer {
+            background-color: green;
             clear: both;
-        }*/
+        }
+        
+        .left,
+        .right {
+            width: 25%;
+            //height: 200px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="left">
+        <div class="left1">
             <img src="logo.gif" width="187" height="29" alt="Книги и Фильмы">
         </div>
-        <div class="right">
+        <div class="right1">
             <p>обзоры всего и всея</p>
         </div>
     </header>
-
+    <section class="right">
+        <h1>RIGHT</h1>
+    </section>
     <section class="left">
         <div>
             <ul>
@@ -71,7 +75,6 @@
             </ul>
         </div>
     </section>
-
     <article>
         <div>
             <h1>Добро пожаловать на Книги и Фильмы</h1>
@@ -83,7 +86,9 @@
                 Vestibulum dictum massa at odio. In dignissim ante id dui. Morbi rhoncus elit ac ipsum. Curabitur a elit. Phasellus in lorem quis turpis imperdiet accumsan. Suspendisse potenti. Curabitur a enim sed lacus tempor venenatis. Mauris sed ipsum sit amet leo dictum scelerisque. Suspendisse a lectus. Aliquam nec felis at erat sagittis pretium. Nunc id augue pharetra augue commodo tincidunt. Praesent placerat, diam quis porttitor lobortis, orci arcu nonummy sapien, at venenatis ipsum wisi non wisi. Sed bibendum nunc at justo. Vestibulum leo lacus, lobortis vel, interdum ac, varius non, augue. Nam rhoncus dictum libero. Donec porttitor porta lectus. Vivamus consectetuer feugiat wisi. Morbi sit amet nibh eget nibh feugiat porttitor.</p>
         </div>
     </article>
-
+    <footer>
+        <h1>FOOTER</h1>
+    </footer>
 </body>
 
 </html>
